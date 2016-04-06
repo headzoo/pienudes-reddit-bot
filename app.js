@@ -42,7 +42,7 @@ function buildComment(payload) {
 function reserveQueued() {
     try {
         console.log('Reserving beanstalkd job.');
-        bean.reserve(function (err, jobid, payload) {
+        bean.reserve_with_timeout(1, function (err, jobid, payload) {
             console.log('Got job #' + jobid);
         
             payload = JSON.parse(payload);
