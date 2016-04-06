@@ -43,8 +43,11 @@ function reserveQueued() {
     try {
         console.log('Reserving beanstalkd job.');
         bean.reserve_with_timeout(1, function (err, jobid, payload) {
+            if (typeof jobid == 'undefined') {
+                return;
+            }
+            
             console.log('Got job #' + jobid);
-        
             payload = JSON.parse(payload);
             reddit.auth().then(function () {
                 console.log('Authenticated with reddit.');
