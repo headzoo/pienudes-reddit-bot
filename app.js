@@ -40,33 +40,37 @@ function buildComment(payload) {
 }
 
 function reserveQueued() {
-    console.log('Reserving beanstalkd job.');
-    bean.reserve(function (err, jobid, payload) {
-        console.log('Got job #' + jobid);
+    try {
+        console.log('Reserving beanstalkd job.');
+        bean.reserve(function (err, jobid, payload) {
+            console.log('Got job #' + jobid);
         
-        payload = JSON.parse(payload);
-        reddit.auth().then(function () {
-            console.log('Authenticated with reddit.');
+            payload = JSON.parse(payload);
+            reddit.auth().then(function () {
+                console.log('Authenticated with reddit.');
             
-            findPlaylistPost(function (post) {
-                if (post != null) {
-                    console.log('Submitting ' + payload.media.title);
+                findPlaylistPost(function (post) {
+                    if (post != null) {
+                        console.log('Submitting ' + payload.media.title);
                     
-                    reddit('/api/comment').post({
-                        thing_id: 't3_' + post.data.id,
-                        api_type: 'json',
-                        text: buildComment(payload)
-                    }).then(function () {
-                        bean.destroy(jobid, function (err) {
-                            if (err) {
-                                console.log(err);
-                            }
+                        reddit('/api/comment').post({
+                            thing_id: 't3_' + post.data.id,
+                            api_type: 'json',
+                            text: buildComment(payload)
+                        }).then(function () {
+                            bean.destroy(jobid, function (err) {
+                                if (err) {
+                                    console.log(err);
+                                }
+                            });
                         });
-                    });
-                }
+                    }
+                });
             });
         });
-    });
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 function findPlaylistPost(cb) {
