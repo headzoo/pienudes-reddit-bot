@@ -19,6 +19,12 @@ cd pienudes
 npm install
 ```
 
+Move the configuration file, and edit the values.
+```
+mv config_dist.js config.js
+```
+
+
 ### Running
 ```
 node app.js
