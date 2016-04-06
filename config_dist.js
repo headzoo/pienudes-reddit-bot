@@ -8,5 +8,10 @@ module.exports = {
             username: 'PieNudes', // Reddit username used to make the reddit app
             password: 'xxxx' // Reddit password for the username
         }
+    },
+    beanstalkd: {
+        host: '127.0.0.1',
+        port: 11300,
+        tube: 'pienudes_playlist'
     }
 };
