@@ -1,5 +1,7 @@
-PieNudes Reddit Bot
-===================
+Pienudes Bot
+============
+A bot which updates the daily playlist and sidebar in [/r/pienudes](https://www.reddit.com/r/pienudes).
+
 
 ### Requirements
 * NodeJS & NPM
