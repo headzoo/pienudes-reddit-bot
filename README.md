@@ -31,3 +31,30 @@ mv config_dist.js config.js
 ```
 node app.js
 ```
+
+
+### How it Works
+Pienudes starts by connecting to beanstalkd, and watching the `pienudes_playlist` tube.
+The jobs found in the tube can come from any source, but must be a JSON *string* with
+the following format and values.
+
+```json
+{
+    media: {
+        id: 'WIKqgE4BwAY',
+     	type: 'yt',
+     	title: 'BABYMETAL - Gimme chocolate!!',
+     	seconds: 270,
+     	duration: '04:30'
+    },
+    queueby: 'headzoo'
+}
+```
+The data structure represents a video which started playing. The `media.id` value is the
+id of the video on Youtube. The full Youtube link can be created by concatenating the id to
+the url "https://youtu.be/". For example "https://youtu.be/WIKqgE4BwAY". The `media.type`
+value of "yt" represents Youtube. Other values may also be used.
+
+When the bot finds a new job in the tube, it adds a comment to the most recent "Daily Playlist"
+post created by AutoModerator in /r/pienudes. It will also update the /r/pienudes sidebar with
+the info under the "Now Playing" section.
