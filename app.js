@@ -41,12 +41,12 @@ function buildComment(payload) {
 }
 
 function buildSidebar(payload) {
-    var text = "---\r\n\r\n**Now Playing**  \r\n";
+    var text = "----\r\n\r\n**Now Playing**  \r\n";
     text += '*' + payload.media.title + "*  \r\n";
     if (payload.media.type == "yt") {
         text += "https://youtu.be/" + payload.media.id + "  \r\n";
     }
-    text += "Queued By: " + payload.queueby + "\r\n\r\n---\r\n";
+    text += "Queued By: " + payload.queueby + "\r\n\r\n----\r\n";
 
     return text;
 }
@@ -84,7 +84,7 @@ function reserveQueued() {
                                 data.type = data.subreddit_type;
                                 
                                 var sidebar = buildSidebar(payload);
-                                sidebar += data.description.replace(/---([\s\S]*)\*\*Now Playing\*\*([\s\S]*)---/, '').trim();
+                                sidebar += data.description.replace(/----([\s\S]*)\*\*Now Playing\*\*([\s\S]*)----/, '').trim();
                                 data.description = sidebar;
                                 
                                 return reddit('/api/site_admin').post(data);
