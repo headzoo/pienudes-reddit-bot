@@ -88,13 +88,13 @@ function reserveQueued() {
                                 data.description = sidebar;
                                 
                                 return reddit('/api/site_admin').post(data);
-                            }).then(function() {
-                                    bean.destroy(jobid, function (err) {
-                                        if (err) {
-                                            console.log(err);
-                                        }
-                                    });
                             });
+                        });
+    
+                        bean.destroy(jobid, function (err) {
+                            if (err) {
+                                console.log(err);
+                            }
                         });
                     }
                 });
