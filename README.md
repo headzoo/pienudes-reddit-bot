@@ -38,7 +38,7 @@ Pienudes starts by connecting to beanstalkd, and watching the `pienudes_playlist
 The jobs found in the tube can come from any source, but must be a JSON *string* with
 the following format and values.
 
-```json
+```
 {
     media: {
         id: 'WIKqgE4BwAY',
