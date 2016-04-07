@@ -84,7 +84,7 @@ function reserveQueued() {
                                 data.type = data.subreddit_type;
                                 
                                 var sidebar = buildSidebar(payload);
-                                sidebar += data.description.replace(/---([\s\S]*)\*\*Now Playing\*\*([\s\S]*)---/, '');
+                                sidebar += data.description.replace(/---([\s\S]*)\*\*Now Playing\*\*([\s\S]*)---/, '').trim();
                                 data.description = sidebar;
                                 
                                 return reddit('/api/site_admin').post(data);
