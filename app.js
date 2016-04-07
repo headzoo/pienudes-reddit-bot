@@ -35,7 +35,7 @@ function buildComment(payload) {
     if (payload.media.type == "yt") {
         text += "https://www.youtube.com/watch?v=" + payload.media.id + "\r\n\r\n";
     }
-    text += "Queued By " + payload.queueby + "\r\n";
+    text += "Queued By: " + payload.queueby + "\r\n";
     
     return text;
 }
@@ -46,7 +46,7 @@ function buildSidebar(payload) {
     if (payload.media.type == "yt") {
         text += "https://www.youtube.com/watch?v=" + payload.media.id + "  \r\n";
     }
-    text += "Queued By " + payload.queueby + "\r\n\r\n---\r\n";
+    text += "Queued By: " + payload.queueby + "\r\n\r\n---\r\n";
 
     return text;
 }
