@@ -33,7 +33,7 @@ bean.connect();
 function buildComment(payload) {
     var text = payload.media.title + "\r\n\r\n";
     if (payload.media.type == "yt") {
-        text += "https://www.youtube.com/watch?v=" + payload.media.id + "\r\n\r\n";
+        text += "https://youtu.be/" + payload.media.id + "\r\n\r\n";
     }
     text += "Queued By: " + payload.queueby + "\r\n";
     
@@ -44,7 +44,7 @@ function buildSidebar(payload) {
     var text = "---\r\n\r\n**Now Playing**  \r\n";
     text += '*' + payload.media.title + "*  \r\n";
     if (payload.media.type == "yt") {
-        text += "https://www.youtube.com/watch?v=" + payload.media.id + "  \r\n";
+        text += "https://youtu.be/" + payload.media.id + "  \r\n";
     }
     text += "Queued By: " + payload.queueby + "\r\n\r\n---\r\n";
 
