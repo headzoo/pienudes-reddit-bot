@@ -12,6 +12,7 @@ module.exports = {
     beanstalkd: {
         host: '127.0.0.1',
         port: 11300,
-        tube: 'pienudes_playlist'
+        tube: 'pienudes_playlist',
+        delay: 30000
     }
 };
