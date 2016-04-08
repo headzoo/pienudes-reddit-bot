@@ -2,7 +2,7 @@
 
 var Snoocore  = require('snoocore');
 var fivebeans = require('fivebeans');
-var Markdown  = require('./media');
+var Markdown  = require('./markdown');
 var Config    = require('../config');
 
 var reddit = new Snoocore({
