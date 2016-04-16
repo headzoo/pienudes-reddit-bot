@@ -14,7 +14,7 @@ module.exports = {
         if (job.media.type == "yt") {
             text += Media.getYoutubeLink(job.media.id) + "\r\n\r\n";
         }
-        text += "Queued By: [" + job.queueby + "](https://pienudes.com/playlists/user" + job.queueby + ")\r\n";
+        text += "Queued By: [" + job.queueby + "](https://pienudes.com/playlists/user/" + job.queueby + ")\r\n";
     
         return text;
     },
@@ -31,7 +31,7 @@ module.exports = {
         if (job.media.type == "yt") {
             text += Media.getYoutubeLink(job.media.id) + "  \r\n";
         }
-        text += "Queued By: [" + job.queueby + "](https://pienudes.com/playlists/user" + job.queueby + ")\r\n\r\n----\r\n";
+        text += "Queued By: [" + job.queueby + "](https://pienudes.com/playlists/user/" + job.queueby + ")\r\n\r\n----\r\n";
     
         return text;
     }
