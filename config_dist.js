@@ -9,6 +9,12 @@ module.exports = {
             password: 'xxxx' // Reddit password for the username
         }
     },
+    twitter: {
+        consumer_key: 'xxxx',
+        consumer_secret: 'xxxx',
+        access_token_key: 'xxxx',
+        access_token_secret: 'xxxx'
+    },
     beanstalkd: {
         host: '127.0.0.1',
         port: 11300,

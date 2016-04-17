@@ -34,5 +34,18 @@ module.exports = {
         text += "Queued By: [" + job.queueby + "](https://pienudes.com/playlists/user/" + job.queueby + ")\r\n\r\n----\r\n";
     
         return text;
+    },
+    
+    /**
+     * Creates and returns the text for a tweet
+     * 
+     * @param {object} job Beanstalkd job
+     * @returns {string}
+     */
+    buildTweet: function(job) {
+        var text = job.queueby.substring(0, 12) + " is playing " + job.media.title.substring(0, 20) + " at https://pienudes.com/r/lobby ";
+        text += Media.getYoutubeLink(job.media.id);
+        
+        return text;
     }
 };

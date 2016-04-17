@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "fivebeans": "^1.3.1",
-    "snoocore": "^3.3.1"
+    "snoocore": "^3.3.1",
+    "twitter": "^1.2.5"
   }
 }
