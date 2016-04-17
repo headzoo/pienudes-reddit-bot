@@ -59,7 +59,3 @@ function reserveQueued() {
         console.log(e);
     }
 }
-
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
