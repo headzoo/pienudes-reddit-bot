@@ -43,7 +43,7 @@ module.exports = {
      * @returns {string}
      */
     buildTweet: function(job) {
-        var text = job.queueby.substring(0, 12) + " is playing " + job.media.title.substring(0, 20) + " at https://pienudes.com/r/lobby ";
+        var text = job.queueby.substring(0, 10) + " is playing " + job.media.title.substring(0, 15) + " at https://pienudes.com/r/lobby #chat #music";
         text += Media.getYoutubeLink(job.media.id);
         
         return text;
