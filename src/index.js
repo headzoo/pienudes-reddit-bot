@@ -19,6 +19,8 @@ bean.on('connect', function () {
     throw err;
 }).connect();
 
+var twitter_counter = 0;
+
 function reserveQueued() {
     try {
         console.log("Reserving beanstalkd job.");
@@ -31,8 +33,9 @@ function reserveQueued() {
             
             reddit.update(media, function() {
                 console.log("Reddit has been updated.");
-                
-                if (getRandomArbitrary(0, 100) > 90) {
+    
+                twitter_counter++;
+                if (twitter_counter == 10) {
                     console.log("Updating twitter.");
                     
                     twitter.tweetMedia(media, function (err) {
@@ -42,6 +45,7 @@ function reserveQueued() {
                             console.log("Twitter has been updated.");
                         }
                     });
+                    twitter_counter = 0;
                 }
                 
                 bean.destroy(job_id, function (err) {
