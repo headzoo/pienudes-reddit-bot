@@ -35,7 +35,7 @@ function reserveQueued() {
                 console.log("Reddit has been updated.");
     
                 twitter_counter++;
-                if (twitter_counter == 20) {
+                //if (twitter_counter == 20) {
                     console.log("Updating twitter.");
                     
                     twitter.tweetMedia(media, function (err) {
@@ -46,7 +46,7 @@ function reserveQueued() {
                         }
                     });
                     twitter_counter = 0;
-                }
+                //}
                 
                 bean.destroy(job_id, function (err) {
                     if (err) {
