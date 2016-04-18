@@ -35,7 +35,7 @@ function reserveQueued() {
                 console.log("Reddit has been updated.");
     
                 twitter_counter++;
-                if (twitter_counter == 20) {
+                if (twitter_counter == 25) {
                     console.log("Updating twitter.");
                     
                     twitter.tweetMedia(media, function (err) {
