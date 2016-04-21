@@ -10,6 +10,9 @@ module.exports = {
      * @returns {string}
      */
     buildPlaylistComment: function(job) {
+        if (job.queueby[0] == "@") {
+            job.queueby = job.queueby.substring(1);
+        }
         var text = job.media.title + "\r\n\r\n";
         if (job.media.type == "yt") {
             text += Media.getYoutubeLink(job.media.id) + "\r\n\r\n";
@@ -26,6 +29,9 @@ module.exports = {
      * @returns {string}
      */
     buildNowPlaying: function(job) {
+        if (job.queueby[0] == "@") {
+            job.queueby = job.queueby.substring(1);
+        }
         var text = "----\r\n\r\n**Now Playing**  \r\n";
         text += '*' + job.media.title + "*  \r\n";
         if (job.media.type == "yt") {
@@ -43,6 +49,9 @@ module.exports = {
      * @returns {string}
      */
     buildTweet: function(job) {
+        if (job.queueby[0] == "@") {
+            job.queueby = job.queueby.substring(1);
+        }
         var text = job.queueby.substring(0, 10) + " is playing " + job.media.title.substring(0, 15) + " at https://pienudes.com/r/lobby #chat #music ";
         text += Media.getYoutubeLink(job.media.id);
         
