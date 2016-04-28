@@ -52,7 +52,7 @@ module.exports = {
         if (job.queueby[0] == "@") {
             job.queueby = job.queueby.substring(1);
         }
-        var text = job.queueby.substring(0, 14) + " is #NowPlaying at https://pienudes.com/r/lobby ";
+        var text = "#NowPlaying in https://pienudes.com/r/lobby by " + job.queueby.substring(0, 14) + " ";
         text += Media.getYoutubeLink(job.media.id);
         
         return text;
