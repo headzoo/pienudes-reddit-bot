@@ -25,21 +25,7 @@ module.exports = {
         var self = this;
     
         self.auth(function () {
-            self.findPlaylistPost(function(err, post) {
-                if (err) {
-                    callback(err);
-                } else if (post) {
-                    self.writeComment(post.data.id, media, function(err) {
-                        if (!err) {
-                            self.updateSidebar(media, callback);
-                        } else {
-                            callback(err);
-                        }
-                    });
-                } else {
-                    callback();
-                }
-            });
+            self.updateSidebar(media, callback);
         });
     },
     
